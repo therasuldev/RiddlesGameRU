@@ -1,0 +1,42 @@
+{
+    "app.lang": "Language",
+    "app.theme": "Dark theme",
+
+    "button.create": "create",
+    "button.text": "Sign Up",
+
+    "user.name": "Name",
+    "user.score": "Money",
+
+    "page.profile": "Profile",
+    "page.game": "Game",
+    "page.home": "Riddles",
+
+    "lang.ru": "RU",
+    "lang.en": "EN",
+
+    "dialog.check": "Yes",
+    "dialog.close": "No",
+
+    "not.account": "You don't have an account, create one",
+    "not.score": "You don't have enough money",
+
+    "info.title": "All data, settings will be deleted",
+    "signin.title": "Sign up, earn +300 money",
+
+    "edit.name": "edit name",
+    "score.text": "money: ",
+    "watch.ad": "+80",
+    "level": "Level",
+
+    "settings": "Settings",
+    "settings.cache": "Clear cache",
+    
+    "delete.account": "Delete account",
+    "winner.score": "Total score:  ",
+    "ok": "OK",
+    "dot": ".",
+    "slash": "/",
+    "exit": "Exit",
+    "team": "R2 TEAM"
+}

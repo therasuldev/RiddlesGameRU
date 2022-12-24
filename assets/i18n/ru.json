@@ -1,0 +1,42 @@
+{
+    "app.lang": "Язык приложения",
+    "app.theme": "Тема",
+
+    "button.create": "Создайте",
+    "button.text": "зарегистрироваться",
+
+    "user.name": "Имя",
+    "user.score": "Деньги",
+
+    "page.profile": "Профиль",
+    "page.game": "Игра",
+    "page.home": "Загадки",
+
+    "lang.ru": "RU",
+    "lang.en": "EN",
+
+    "dialog.check": "Да",
+    "dialog.close": "Нет",
+
+    "not.account": "У вас нет аккаунт, создайте его",
+    "not.score": "У вас недостаточно денег",
+
+    "info.title": "Все данные, настройки будут удалены",
+    "signin.title": "Зарегистрируйтесь, заработайте +300 денег",
+
+    "edit.name": "редактировать имя",
+    "score.text": "деньги: ",
+    "watch.ad": "+80",
+    "level": "Уровень",
+
+    "settings": "Настройки",
+    "settings.cache": "Очистить кеш",
+    
+    "delete.account": "Удалить аккаунт",
+    "winner.score": "Общий счет:  ",
+    "ok": "OK",
+    "dot": ".",
+    "slash": "/",
+    "exit": "Выход",
+    "team": "R2 TEAM"
+}
