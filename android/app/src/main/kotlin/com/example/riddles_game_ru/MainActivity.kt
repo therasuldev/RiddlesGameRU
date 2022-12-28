@@ -1,4 +1,4 @@
-package com.example.riddles_game_ru
+package com.riddle.game.ru
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -126,7 +126,7 @@ class _ProfileState extends R2State<Profile> {
             height: 70,
             width: MediaQuery.of(context).size.width * .9,
             decoration:
-                UserComponentsCardDecor(color: ColorName.grey.withOpacity(.3)),
+                UserComponentsCardDecor(color: Theme.of(context).hoverColor),
             alignment: Alignment.center,
             child: AutoSizeText(
               ridd.fmt(context, 'signin.title'),
