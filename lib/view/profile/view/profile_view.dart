@@ -41,47 +41,6 @@ class _ProfileState extends R2State<Profile> {
     }
   }
 
-  // void _createBannerAd() {
-  //   _bannerAd = BannerAd(
-  //       size: AdSize.fullBanner,
-  //       adUnitId: AdmobService.bannerAdUnitId!,
-  //       listener: AdmobService.bannerAdListener,
-  //       request: const AdRequest())
-  //     ..load();
-  // }
-
-  // void _createRewardedAd() {
-  //   RewardedAd.load(
-  //     adUnitId: AdmobService.rewardedAdUnitId!,
-  //     request: const AdRequest(),
-  //     rewardedAdLoadCallback: RewardedAdLoadCallback(
-  //       onAdLoaded: (ad) => setState(() => _rewardedAd = ad),
-  //       onAdFailedToLoad: (error) => setState(() => _rewardedAd = null),
-  //     ),
-  //   );
-  // }
-
-  // void _showRewardedAd() {
-  //   if (_rewardedAd != null) {
-  //     _rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
-  //       onAdDismissedFullScreenContent: (ad) {
-  //         ad.dispose();
-  //         _createRewardedAd();
-  //       },
-  //       onAdFailedToShowFullScreenContent: (ad, error) {
-  //         ad.dispose();
-  //         _createRewardedAd();
-  //       },
-  //     );
-  //     _rewardedAd!.show(
-  //       onUserEarnedReward: (ad, reward) {
-  //         setState(() => _rewardedScore++);
-  //       },
-  //     );
-  //     _rewardedAd = null;
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return ListView(
