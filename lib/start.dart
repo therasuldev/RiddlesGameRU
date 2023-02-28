@@ -110,7 +110,7 @@ class _StartState extends R2State<Start> {
 
   Color? _iconColor(bool isSelected) {
     if (isSelected) {
-      return Theme.of(context).backgroundColor.withGreen(160);
+      return Theme.of(context).colorScheme.background.withGreen(160);
     }
     return null;
   }

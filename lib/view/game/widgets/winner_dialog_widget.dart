@@ -35,7 +35,7 @@ class _WinnerDialogWidgetState extends R2State<WinnerDialogWidget> {
           color: Theme.of(context).scaffoldBackgroundColor.withOpacity(.8),
           borderRadius: BorderRadius.circular(15),
           border:
-              Border.all(color: Theme.of(context).textTheme.headline6!.color!),
+              Border.all(color: Theme.of(context).textTheme.titleLarge!.color!),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,

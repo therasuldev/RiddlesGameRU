@@ -47,7 +47,7 @@ class _GameAnswersCardState extends R2State<GameAnswersCard>
             child: PinPut(
               textStyle: TextStyle(
                   color: Theme.of(context)
-                      .errorColor
+                      .colorScheme.error
                       .withBlue(200)
                       .withGreen(200)),
               withCursor: true,
