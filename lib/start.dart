@@ -17,7 +17,6 @@ class Start extends R2StatefulWidget {
 }
 
 class _StartState extends R2State<Start> {
-  final _controller = PageController();
   int _pageIndex = 0;
 
   final List<Widget> _pages = [
@@ -26,18 +25,8 @@ class _StartState extends R2State<Start> {
     Profile()
   ];
 
-  void _pageChanged(int index) {
-    _pageIndex = index;
-    setState(() {});
-  }
-
   void _bottomTapped(int index) {
     _pageIndex = index;
-    _controller.animateToPage(
-      _pageIndex,
-      duration: const Duration(milliseconds: 700),
-      curve: Curves.ease,
-    );
     setState(() {});
   }
 
@@ -46,18 +35,14 @@ class _StartState extends R2State<Start> {
     return SafeArea(
       child: Scaffold(
         appBar: _riddleAppBar(_pageIndex),
-        body: PageView(
-          controller: _controller,
-          children: [..._pages],
-          onPageChanged: (value) => _pageChanged(value),
-        ),
+        body: [..._pages][_pageIndex],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _pageIndex,
           items: _bottomNavigationBarItem,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
-          onTap: (value) => _bottomTapped(value),
+          onTap: (v) => _bottomTapped(v),
         ),
       ),
     );
