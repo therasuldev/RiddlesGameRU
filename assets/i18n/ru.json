@@ -38,5 +38,10 @@
     "dot": ".",
     "slash": "/",
     "exit": "Выход",
-    "team": "R2 TEAM"
+    "team": "R2 TEAM", 
+
+    "ad.title": "Реклама не загрузилась",
+    
+    "comment.hint": "Ваш комментарий",
+    "comment.submit": "Отправить"
 }

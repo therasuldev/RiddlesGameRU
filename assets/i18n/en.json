@@ -38,5 +38,9 @@
     "dot": ".",
     "slash": "/",
     "exit": "Exit",
-    "team": "R2 TEAM"
+    "team": "R2 TEAM",
+
+    "ad.title": "Ad not loaded",
+    "comment.hint": "Tell us your comment",
+    "comment.submit": "Submit"
 }

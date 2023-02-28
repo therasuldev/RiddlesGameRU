@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:riddles_game_ru/core/provider/cubit/ads/ad_cubit.dart';
+import 'package:riddles_game_ru/view/animations/loading_widget.dart';
+import 'package:riddles_game_ru/view/utils/utils.dart';
 
 import '../../../riddles_games_ru.dart';
 
@@ -31,11 +35,23 @@ class WatchRewardedAd extends R2StatelessWidget {
               style: R2Typography.info.orangeWithOpacity.size22,
             ),
             const Spacer(),
-            CupertinoButton(
-              onPressed: onPressed,
-              child: SizedBox(
-                height: 45,
-                child: Image.asset(Assets.png.play.path),
+            BlocListener<AdCubit, AdState>(
+              listener: (context, state) {
+                if (state is AdFailed) {
+                  ViewUtils.snackBar(context, ridd.fmt(context, 'ad.title'));
+                }
+              },
+              child: BlocBuilder<AdCubit, AdState>(
+                builder: (context, state) {
+                  if (state is AdLoad) return LoadingWidget();
+                  return CupertinoButton(
+                    onPressed: onPressed,
+                    child: SizedBox(
+                      height: 45,
+                      child: Image.asset(Assets.png.play.path),
+                    ),
+                  );
+                },
               ),
             )
           ],
