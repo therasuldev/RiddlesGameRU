@@ -51,7 +51,6 @@ class PinPut extends StatefulWidget {
     this.obscureText,
     this.textCapitalization = TextCapitalization.none,
     this.textInputAction,
-    this.toolbarOptions,
     this.mainAxisSize = MainAxisSize.max,
   })  : assert(fieldsCount > 0),
         super(key: key);
@@ -244,8 +243,6 @@ class PinPut extends StatefulWidget {
   /// If not set, select all and paste will default to be enabled. Copy and cut
   /// will be disabled if [obscureText] is true. If [readOnly] is true,
   /// paste and cut will be disabled regardless.
-  final ToolbarOptions? toolbarOptions;
-
   /// Maximize the amount of free space along the main axis.
   final MainAxisSize mainAxisSize;
 
