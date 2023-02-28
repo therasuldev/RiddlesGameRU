@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:riddles_game_ru/core/database/riddle_db.dart';
 import 'package:riddles_game_ru/core/provider/cubit/app/app_cubit.dart';
+import 'package:riddles_game_ru/core/repository/cache_repository.dart';
 import 'package:riddles_game_ru/view/animations/fade_animation.dart';
 import 'package:riddles_game_ru/view/animations/loading_widget.dart';
 
@@ -46,8 +47,8 @@ class _RiddleViewState extends R2State<RiddleView> with RiddleViewMixin {
                         style: GoogleFonts.balsamiqSans(
                           color: _appCubit.state.themeName == "light"
                               ? Theme.of(context).primaryColor
-                              : Theme.of(context).errorColor.withBlue(255),
-                          textStyle: Theme.of(context).textTheme.headline6,
+                              : Colors.grey.shade400,
+                          textStyle: Theme.of(context).textTheme.titleLarge,
                         ),
                       ),
                     ),
@@ -118,7 +119,11 @@ class _RiddleViewState extends R2State<RiddleView> with RiddleViewMixin {
 mixin RiddleViewMixin on R2State<RiddleView> {
   int _startIndex = 0;
   bool _showText = false;
-  final _db = RiddleDB();
+
+  final _db = RiddleRepository(
+    cahceRepo: CacheRepository(),
+    path: DataPath.riddles.getPath(),
+  );
 
   Future<int> _nextQuestion(String category) async {
     var q = await _db.getRiddles(category);

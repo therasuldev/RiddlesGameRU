@@ -46,7 +46,7 @@ class GenerateDialog extends AlertDialog {
               maxLines: 2,
               style: Theme.of(context)
                   .textTheme
-                  .headline6!
+                  .titleLarge!
                   .copyWith(fontSize: 18)),
           actions: [
             TextButton(

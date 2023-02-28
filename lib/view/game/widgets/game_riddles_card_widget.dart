@@ -63,10 +63,10 @@ class GameRiddlesCard extends R2StatelessWidget {
             riddle,
             textAlign: TextAlign.center,
             style: GoogleFonts.balsamiqSans(
-              textStyle: Theme.of(context).textTheme.headline6,
+              textStyle: Theme.of(context).textTheme.titleLarge,
               color: state.themeName == "light"
                   ? Theme.of(context).primaryColor
-                  : Theme.of(context).errorColor.withBlue(255),
+                  : Colors.grey.shade400,
             ),
           ),
         );

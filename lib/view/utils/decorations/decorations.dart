@@ -32,7 +32,7 @@ class TextFieldDecor extends InputDecoration {
             border: InputBorder.none,
             hintStyle: GoogleFonts.balsamiqSans(
               textStyle:
-                  Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 12),
+                  Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 12),
             ),
             contentPadding: const EdgeInsets.only(left: 15));
 }
