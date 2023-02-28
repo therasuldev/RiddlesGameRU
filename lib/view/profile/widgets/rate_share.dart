@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:riddles_game_ru/core/provider/cubit/app/app_cubit.dart';
+import 'package:riddles_game_ru/view/profile/package/rate.dart';
+import 'package:riddles_game_ru/view/profile/package/share.dart';
 
 import '../../../riddles_games_ru.dart';
 
@@ -16,7 +18,12 @@ class RateAndShareWidget extends R2StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             CupertinoButton(
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => RateApp.ratingDialog(context),
+                );
+              },
               padding: EdgeInsets.zero,
               child: Card(
                 elevation: 2,
@@ -30,7 +37,7 @@ class RateAndShareWidget extends R2StatelessWidget {
               ),
             ),
             CupertinoButton(
-              onPressed: () {},
+              onPressed: () => ShareApp.onShare(context),
               padding: EdgeInsets.zero,
               child: Card(
                 elevation: 2,
