@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:riddles_game_ru/core/const/constant.dart';
+import 'package:riddles_game_ru/core/constant/constant.dart';
 import 'package:riddles_game_ru/core/model/user/user.dart';
 import 'package:riddles_game_ru/core/provider/bloc/user/user_bloc.dart';
 class AdManager {

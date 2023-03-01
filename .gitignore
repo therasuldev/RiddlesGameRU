@@ -43,3 +43,5 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 /assets/appdata
+/lib/core/constant
+/assets/appdata/
