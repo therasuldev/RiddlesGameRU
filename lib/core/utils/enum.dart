@@ -1,6 +1,8 @@
 enum Durations {
   low(100),
-  high(300);
+  normal(300),
+  two(2),
+  one(1);
 
   final int delay;
   const Durations(this.delay);

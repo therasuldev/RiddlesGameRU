@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../service/service.dart';
+import '../service/cache/service.dart';
 import '../utils/logger.dart';
 import 'intl.dart';
 

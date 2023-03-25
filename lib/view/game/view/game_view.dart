@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:riddles_game_ru/core/provider/bloc/user/user_bloc.dart';
+import 'package:riddles_game_ru/core/service/ads/admob_service.dart';
+import 'package:riddles_game_ru/core/utils/enum.dart';
 import 'package:riddles_game_ru/view/animations/loading_widget.dart';
 
 import '../../../core/provider/bloc/game/game_bloc.dart';
@@ -67,47 +69,55 @@ mixin GameViewMixin on R2State<GameView> {
   bool _result = false;
   Color _stateColor = ColorName.blueGrey;
   final _controller = TextEditingController();
+  final AdManager _adManager = AdManager();
 
-  void _nextRiddleWithAnswer() {
+  void _nextRiddleWithAnswer() async {
     final state = BlocProvider.of<GameBloc>(context).state;
     final rightAnswer = state.riddles[_startIndex].answer.toLowerCase();
     final yourAnswer = _controller.text.toLowerCase();
+
+    if (_startIndex != 0 && (_startIndex + 1) % 7 == 0) {
+      _adManager.loadInterstitialAd();
+    } else if (_startIndex % 7 == 0) {
+      _adManager.showInterstitialAd();
+    }
 
     if (yourAnswer == rightAnswer) return answerRight();
     return answerFalse();
   }
 
-  void answerRight() => setState(() {
-        _result = true;
-        _stateColor = ColorName.green;
-        _controller.clear();
-        _incrementScore();
-        _incrementIndex();
+  Future<void> answerRight() async {
+    setState(() {});
+    _result = true;
+    _stateColor = ColorName.green;
+    _controller.clear();
+    _incrementScore();
+    _incrementIndex();
 
-        Future.delayed(const Duration(milliseconds: 1500)).then(
-          (_) {
-            if (mounted) {
-              setState(() {
-                _stateColor = ColorName.blueGrey;
-                _result = false;
-              });
-            }
-          },
-        );
-        _finalResultDialog();
+    await Future.delayed(Duration(seconds: Durations.one.delay));
+
+    if (mounted) {
+      setState(() {
+        _stateColor = ColorName.blueGrey;
+        _result = false;
       });
+    }
 
-  void answerFalse() => setState(() {
-        _stateColor = ColorName.red;
-        _controller.clear();
-        _decrementScore();
-        _incrementIndex();
+    _finalResultDialog();
+  }
 
-        Future.delayed(const Duration(seconds: 1)).then((_) => setState(() {
-              _stateColor = ColorName.blueGrey;
-            }));
-        _finalResultDialog();
-      });
+  Future<void> answerFalse() async {
+    setState(() {});
+    _stateColor = ColorName.red;
+    _controller.clear();
+    _decrementScore();
+    _incrementIndex();
+
+    await Future.delayed(Duration(seconds: Durations.one.delay));
+
+    setState(() => _stateColor = ColorName.blueGrey);
+    _finalResultDialog();
+  }
 
   int _incrementIndex() {
     _defaultIndex++;
@@ -154,12 +164,12 @@ mixin GameViewMixin on R2State<GameView> {
     return _controller.text;
   }
 
-  _finalResultDialog() {
+  _finalResultDialog() async {
     final userBloc = context.read<UserBloc>().state;
     _finalScore = userBloc.user.score + _score;
 
     if (_defaultIndex == 10) {
-      return showDialog<Widget>(
+      return await showDialog<Widget>(
         barrierDismissible: false,
         context: context,
         builder: (_) {

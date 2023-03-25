@@ -12,7 +12,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc() : super(UserState.empty()) {
     on<UserAdd>(_onUserAdd);
     on<UserGet>(_onUserGet);
-    on<RemoveUser>(_onRemoveUser);
+    //on<RemoveUser>(_onRemoveUser);
   }
   _onUserGet(UserGet event, Emitter<UserState> emit) async {
     var user = await db.getUser();
@@ -24,8 +24,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     emit(state.copyWith(isSuccess: true, user: user));
   }
 
-  _onRemoveUser(RemoveUser event, Emitter<UserState> emit) async {
-    await db.deleteUser();
-    emit(state.copyWith(isSuccess: true, user: UserModel(name: '', score: 0)));
-  }
+  // _onRemoveUser(RemoveUser event, Emitter<UserState> emit) async {
+  //   await db.deleteUser();
+  //   emit(state.copyWith(isSuccess: true, user: UserModel(name: '', score: 0)));
+  // }
 }

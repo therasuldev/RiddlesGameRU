@@ -4,11 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:riddles_game_ru/core/interface/i_riddles_repository.dart';
 import 'package:riddles_game_ru/core/repository/cache_repository.dart';
 
-
 class GameRepository extends IRiddlesRepository {
-  // final ridd = Riddle();
-  // final key = 'assets/data/game';
-
   final CacheRepository _cahceRepo;
   final String _path;
   GameRepository({

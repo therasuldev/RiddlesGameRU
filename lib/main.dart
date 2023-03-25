@@ -5,20 +5,23 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:riddles_game_ru/core/provider/observer.dart';
-import 'package:riddles_game_ru/core/service/boxes.dart';
+import 'package:riddles_game_ru/core/service/cache/boxes.dart';
+import 'package:upgrader/upgrader.dart';
 
 import 'app.dart';
 import 'core/app/intl.dart';
 import 'core/app/riddle.dart';
 import 'core/model/riddle_model/riddle_model.dart';
 import 'core/model/user/user.dart';
-import 'core/service/service.dart';
+import 'core/service/cache/service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
 
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await Upgrader.clearSavedSettings();
+
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   await path
       .getApplicationDocumentsDirectory()

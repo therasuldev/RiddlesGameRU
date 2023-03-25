@@ -3,9 +3,8 @@
     "app.theme": "Тема",
 
     "button.create": "Создайте",
-    "button.text": "зарегистрироваться",
 
-    "user.name": "Имя",
+    "user.name": "Ваше имя",
     "user.score": "Деньги",
 
     "page.profile": "Профиль",
@@ -18,11 +17,9 @@
     "dialog.check": "Да",
     "dialog.close": "Нет",
 
-    "not.account": "У вас нет аккаунт, создайте его",
     "not.score": "У вас недостаточно денег",
 
     "info.title": "Все данные, настройки будут удалены",
-    "signin.title": "Зарегистрируйтесь, заработайте +300 денег",
 
     "edit.name": "редактировать имя",
     "score.text": "деньги: ",
@@ -32,15 +29,12 @@
     "settings": "Настройки",
     "settings.cache": "Очистить кеш",
     
-    "delete.account": "Удалить аккаунт",
     "winner.score": "Общий счет:  ",
     "ok": "OK",
     "dot": ".",
     "slash": "/",
     "exit": "Выход",
     "team": "R2 TEAM", 
-
-    "ad.title": "Реклама не загрузилась",
     
     "comment.hint": "Ваш комментарий",
     "comment.submit": "Отправить"

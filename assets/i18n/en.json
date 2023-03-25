@@ -3,9 +3,8 @@
     "app.theme": "Dark theme",
 
     "button.create": "create",
-    "button.text": "Sign Up",
 
-    "user.name": "Name",
+    "user.name": "Your name",
     "user.score": "Money",
 
     "page.profile": "Profile",
@@ -18,11 +17,9 @@
     "dialog.check": "Yes",
     "dialog.close": "No",
 
-    "not.account": "You don't have an account, create one",
     "not.score": "You don't have enough money",
 
     "info.title": "All data, settings will be deleted",
-    "signin.title": "Sign up, earn +300 money",
 
     "edit.name": "edit name",
     "score.text": "money: ",
@@ -32,7 +29,6 @@
     "settings": "Settings",
     "settings.cache": "Clear cache",
     
-    "delete.account": "Delete account",
     "winner.score": "Total score:  ",
     "ok": "OK",
     "dot": ".",
@@ -40,7 +36,6 @@
     "exit": "Exit",
     "team": "R2 TEAM",
 
-    "ad.title": "Ad not loaded",
     "comment.hint": "Tell us your comment",
     "comment.submit": "Submit"
 }

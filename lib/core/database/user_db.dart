@@ -14,7 +14,7 @@ class UserDB {
     return user ?? UserModel.empty;
   }
 
-  deleteUser() async {
-    await _ridd.cacheService.user.delete('User');
-  }
+  // deleteUser() async {
+  //   await _ridd.cacheService.user.delete('User');
+  // }
 }

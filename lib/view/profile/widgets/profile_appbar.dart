@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:riddles_game_ru/core/app/theme.dart';
-import 'package:riddles_game_ru/core/provider/bloc/user/user_bloc.dart';
 import 'package:riddles_game_ru/core/provider/cubit/app/app_cubit.dart';
 import 'package:riddles_game_ru/core/provider/cubit/level/level_cubit.dart';
 import 'package:riddles_game_ru/view/utils/utils.dart';
@@ -18,12 +17,10 @@ class ProfileViewAppBar extends R2StatefulWidget {
 }
 
 class _ProfileViewAppBarState extends R2State<ProfileViewAppBar> {
-  late UserBloc _userBloc;
   late AppCubit _appCubit;
   late LevelCubit _levelCubit;
   @override
   void initState() {
-    _userBloc = BlocProvider.of<UserBloc>(context);
     _appCubit = BlocProvider.of<AppCubit>(context);
     _levelCubit = BlocProvider.of<LevelCubit>(context);
     super.initState();
@@ -103,10 +100,8 @@ class _ProfileViewAppBarState extends R2State<ProfileViewAppBar> {
               onSelected: (value) async {
                 switch (value) {
                   case 0:
-                    return _deleteAccount(context);
-                  case 1:
                     return _clearAllCache(context);
-                  case 2:
+                  case 1:
                     return _exit(context);
                 }
               },
@@ -114,25 +109,6 @@ class _ProfileViewAppBarState extends R2State<ProfileViewAppBar> {
           ],
         ),
       ),
-    );
-  }
-
-  Future<void> _deleteAccount(BuildContext context) {
-    return showDialog(
-      context: context,
-      builder: (_) {
-        return GenerateDialog(
-          context: context,
-          title: '${ridd.fmt(context, 'delete.account')} ?',
-          cancelTitle: ridd.fmt(context, 'dialog.close'),
-          actTitle: ridd.fmt(context, 'dialog.check'),
-          onAct: () {
-            _userBloc.add(RemoveUser());
-            _levelCubit.removeLevels();
-            Navigator.pop(context);
-          },
-        );
-      },
     );
   }
 
@@ -187,6 +163,6 @@ class _ProfileViewAppBarState extends R2State<ProfileViewAppBar> {
     _appCubit.changeLang('ru');
     _appCubit.changeTheme(Themes.lightID);
     _levelCubit.removeLevels();
-    _userBloc.add(RemoveUser());
+    // _userBloc.add(RemoveUser());
   }
 }

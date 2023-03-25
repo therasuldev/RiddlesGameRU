@@ -21,8 +21,8 @@ class GamesView extends R2StatefulWidget {
 }
 
 class _GamesViewState extends R2State<GamesView> {
-  final _route = RouteService();
-  int _finalScore = 0;
+  final RouteService _route = RouteService();
+  final ScrollController _controller = ScrollController();
 
   @override
   void initState() {
@@ -39,7 +39,7 @@ class _GamesViewState extends R2State<GamesView> {
         ListView.builder(
           shrinkWrap: true,
           itemCount: gameCategories.length,
-          controller: ScrollController(),
+          controller: _controller,
           itemBuilder: (_, index) => GestureDetector(
             onTap: () async {
               final userState = context.read<UserBloc>().state;
@@ -48,11 +48,6 @@ class _GamesViewState extends R2State<GamesView> {
                   .read<GameBloc>()
                   .add(AddGameRiddles(gameCategories[index]));
 
-              if (!_userState()) {
-                final msg = ridd.fmt(context, 'not.account');
-                ViewUtils.snackBar(context, msg);
-                return;
-              }
               if (index == 0) {
                 _route.goGameViewPage(context, gameCategories[index]);
                 return;
@@ -87,14 +82,7 @@ class _GamesViewState extends R2State<GamesView> {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(Assets.png.level.path),
-                  const SizedBox(width: 10),
-                  Image.asset(numbers[index])
-                ],
-              ),
+              Image.asset(numbers[index]),
               ViewUtils.defaultSizedBox,
               CupertinoButton(
                 onPressed: () {
@@ -132,6 +120,8 @@ class _GamesViewState extends R2State<GamesView> {
     return 50 + (index * 50);
   }
 
+  int _finalScore = 0;
+
   void _buyNewLevel(UserState state, int index) {
     _finalScore = state.user.score - levelCost(index);
     final user = UserModel(name: state.user.name, score: _finalScore);
@@ -145,14 +135,6 @@ class _GamesViewState extends R2State<GamesView> {
         _route.goGameViewPage(context, gameCategories[index]);
       },
     );
-  }
-
-  bool _userState() {
-    var state = context.read<UserBloc>().state;
-    if (state.user.name.isEmpty) {
-      return false;
-    }
-    return true;
   }
 
   bool _scoreState(int index) {

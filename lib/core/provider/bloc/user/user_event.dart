@@ -10,4 +10,4 @@ class UserAdd extends UserEvent {
 
 class UserGet extends UserEvent {}
 
-class RemoveUser extends UserEvent {}
+//class RemoveUser extends UserEvent {}

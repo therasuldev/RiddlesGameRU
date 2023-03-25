@@ -12,4 +12,14 @@ class UserModel {
   UserModel({required this.name, required this.score});
 
   static UserModel empty = UserModel(name: '', score: 0);
+
+  UserModel copyWith({
+    String? name,
+    int? score,
+  }) {
+    return UserModel(
+      name: name ?? this.name,
+      score: score ?? this.score,
+    );
+  }
 }
